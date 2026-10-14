@@ -1,4 +1,4 @@
-﻿// ===========================
+// ===========================
 // AI x Notion Workshop
 // Landing Page Scripts
 // ===========================
@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Setup ripple effects
     setupRipple();
+
+    // Setup Mentimeter modal
+    setupModal();
 });
 
 // --- Entrance Animation ---
@@ -125,3 +128,82 @@ function setupRipple() {
 const rippleStyle = document.createElement('style');
 rippleStyle.textContent = '@keyframes rippleEffect { to { transform: scale(2.5); opacity: 0; } }';
 document.head.appendChild(rippleStyle);
+
+// --- Mentimeter Modal Logic ---
+function setupModal() {
+    const mentiBtn = document.getElementById('btn-menti');
+    const modal = document.getElementById('menti-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const copyBtn = document.getElementById('btn-copy-code');
+    const copyText = document.getElementById('copy-text');
+
+    if (!mentiBtn || !modal) return;
+
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    mentiBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            const code = '3568 5553';
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(code).then(() => {
+                    showCopied();
+                }).catch(() => {
+                    fallbackCopy(code);
+                });
+            } else {
+                fallbackCopy(code);
+            }
+        });
+    }
+
+    function showCopied() {
+        if (!copyText) return;
+        const originalText = copyText.textContent;
+        copyText.textContent = 'คัดลอกแล้ว!';
+        copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-300');
+        setTimeout(() => {
+            copyText.textContent = originalText;
+            copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-300');
+        }, 2000);
+    }
+
+    function fallbackCopy(text) {
+        const tempInput = document.createElement('input');
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        showCopied();
+    }
+}
+
