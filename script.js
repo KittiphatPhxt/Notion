@@ -1,133 +1,73 @@
-// ===========================
-// AI x Notion Workshop
-// Landing Page Scripts
-// ===========================
+// ========================================================
+// Notion Learning Hub — Scripts (Touch & Mobile Optimized)
+// ========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // Create floating particles
-    createParticles();
+    if (window.lucide) {
+        lucide.createIcons();
+    }
 
     // Animate elements on load
     animateEntrance();
 
-    // Setup ripple effects
-    setupRipple();
+    // Setup interactive tilt ONLY on desktop with real mouse pointer
+    setupDesktopTilt();
 
-    // Setup Mentimeter modal
+    // Setup Mentimeter QR Modal
     setupModal();
 });
 
 // --- Entrance Animation ---
 function animateEntrance() {
     const brand = document.getElementById('brand');
-    const cards = document.querySelectorAll('.btn-card');
+    const cards = document.querySelectorAll('.notion-card');
     const footer = document.getElementById('footer');
 
-    setTimeout(() => { brand.classList.add('animate-in'); }, 200);
+    if (brand) {
+        setTimeout(() => { brand.classList.add('animate-in'); }, 100);
+    }
 
     cards.forEach((card, index) => {
-        setTimeout(() => { card.classList.add('animate-in'); }, 400 + (index * 120));
+        setTimeout(() => { card.classList.add('animate-in'); }, 200 + (index * 80));
     });
 
-    setTimeout(() => { footer.classList.add('animate-in'); }, 400 + (cards.length * 120) + 200);
-}
-
-// --- Particle System ---
-function createParticles() {
-    const container = document.getElementById('particles');
-    const particleCount = 25;
-    const colors = [
-        'rgba(56, 189, 248, 0.4)',
-        'rgba(125, 211, 252, 0.3)',
-        'rgba(186, 230, 253, 0.5)',
-        'rgba(14, 165, 233, 0.25)',
-        'rgba(103, 232, 249, 0.3)',
-    ];
-
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-
-        const size = Math.random() * 8 + 3;
-        const left = Math.random() * 100;
-        const duration = Math.random() * 20 + 15;
-        const delay = Math.random() * 20;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        particle.style.left = left + '%';
-        particle.style.backgroundColor = color;
-        particle.style.animationDuration = duration + 's';
-        particle.style.animationDelay = delay + 's';
-        particle.style.boxShadow = '0 0 ' + (size * 2) + 'px ' + color;
-
-        container.appendChild(particle);
+    if (footer) {
+        setTimeout(() => { footer.classList.add('animate-in'); }, 200 + (cards.length * 80) + 150);
     }
 }
 
-// --- Interactive Tilt Effect ---
-document.addEventListener('mousemove', (e) => {
-    const cards = document.querySelectorAll('.btn-card');
-    cards.forEach((card) => {
-        const rect = card.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const deltaX = (e.clientX - centerX) / rect.width;
-        const deltaY = (e.clientY - centerY) / rect.height;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+// --- Desktop-Only Subtle Tilt (Disabled on iPad/Mobile touchscreens) ---
+function setupDesktopTilt() {
+    const isDesktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!isDesktopPointer) return;
 
-        if (distance < 2) {
-            const rotateX = deltaY * -4;
-            const rotateY = deltaX * 4;
-            card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
-        } else {
+    document.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.notion-card');
+        cards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const deltaX = (e.clientX - centerX) / rect.width;
+            const deltaY = (e.clientY - centerY) / rect.height;
+            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+            if (distance < 1.4) {
+                const rotateX = deltaY * -3;
+                const rotateY = deltaX * 3;
+                card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+            } else {
+                card.style.transform = '';
+            }
+        });
+    });
+
+    document.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.notion-card').forEach((card) => {
             card.style.transform = '';
-        }
-    });
-});
-
-document.addEventListener('mouseleave', () => {
-    document.querySelectorAll('.btn-card').forEach((card) => {
-        card.style.transform = '';
-    });
-});
-
-// --- Ripple Effect on Click ---
-function setupRipple() {
-    document.querySelectorAll('.btn-card').forEach((card) => {
-        card.addEventListener('click', function (e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-
-            ripple.style.position = 'absolute';
-            ripple.style.width = size + 'px';
-            ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'radial-gradient(circle, rgba(56, 189, 248, 0.3), transparent 70%)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'rippleEffect 0.6s ease-out forwards';
-            ripple.style.zIndex = '0';
-            ripple.style.pointerEvents = 'none';
-
-            this.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 700);
         });
     });
 }
-
-// Ripple keyframes
-const rippleStyle = document.createElement('style');
-rippleStyle.textContent = '@keyframes rippleEffect { to { transform: scale(2.5); opacity: 0; } }';
-document.head.appendChild(rippleStyle);
 
 // --- Mentimeter Modal Logic ---
 function setupModal() {
@@ -188,11 +128,11 @@ function setupModal() {
     function showCopied() {
         if (!copyText) return;
         const originalText = copyText.textContent;
-        copyText.textContent = 'คัดลอกแล้ว!';
-        copyBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'border-emerald-300');
+        copyText.textContent = 'คัดลอกสำเร็จ!';
+        copyBtn.classList.add('bg-[#EEF6F3]', 'text-[#0F7B6C]', 'border-[#C4E3D8]');
         setTimeout(() => {
             copyText.textContent = originalText;
-            copyBtn.classList.remove('bg-emerald-50', 'text-emerald-700', 'border-emerald-300');
+            copyBtn.classList.remove('bg-[#EEF6F3]', 'text-[#0F7B6C]', 'border-[#C4E3D8]');
         }, 2000);
     }
 
@@ -206,4 +146,3 @@ function setupModal() {
         showCopied();
     }
 }
-

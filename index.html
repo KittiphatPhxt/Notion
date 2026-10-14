@@ -3,12 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#FAF9F6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="description" content="ศูนย์รวมสไลด์ เทมเพลต และกิจกรรมสำหรับเวิร์กช็อป Notion">
+
     <!-- Favicon -->
     <link rel="icon" href="https://www.notion.so/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="https://www.notion.so/images/meta/default.png">
-    <title>Notion Group</title>
-
+    <title>Notion Learning Hub — AI x Notion Workshop</title>
 
     <!-- TailwindCSS v3 CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,19 +21,17 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'Noto Sans Thai', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', '"Noto Sans Thai"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Plus Jakarta Sans + Noto Sans Thai -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -38,202 +40,239 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 font-sans overflow-x-hidden">
+<body class="min-h-screen bg-[#FAF9F6] text-[#2F3437] font-sans antialiased overflow-x-hidden">
 
-    <!-- Animated Background Blobs -->
-    <div class="fixed inset-0 pointer-events-none overflow-hidden" style="z-index: -10;" aria-hidden="true">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
+    <!-- Subtle Ambient Texture & Light -->
+    <div class="fixed inset-0 pointer-events-none ambient-bg" style="z-index: -1;" aria-hidden="true"></div>
 
-    <!-- Floating Particles -->
-    <div id="particles" class="fixed inset-0 pointer-events-none" style="z-index: -5;" aria-hidden="true"></div>
+    <!-- Main Container -->
+    <main class="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-10 sm:py-14 md:py-16 safe-padding">
 
-    <!-- Main Content -->
-    <main class="relative min-h-screen flex flex-col items-center justify-center px-4 py-12">
-
-        <!-- Logo / Brand Section -->
-        <div id="brand" class="text-center mb-10 opacity-0 translate-y-8">
-            <div
-                class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-xl shadow-sky-200/50 border border-sky-100 mb-5 p-3.5 hover:scale-105 transition-all duration-300">
-                <!-- Authentic Notion Logo SVG -->
-                <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#0f172a"/>
-                </svg>
+        <!-- Header / Brand Section -->
+        <header id="brand" class="text-center mb-8 sm:mb-10 opacity-0 translate-y-3 transition-all duration-500 max-w-lg mx-auto">
+            <!-- Pill Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium text-[#5B5854] bg-[#F1EFEB] border border-[#E3E0D8] mb-4 shadow-xs">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                <span>AI x Notion Workshop 2026</span>
             </div>
-            <h1
-                class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
-                Notion Group
+
+            <!-- Notion Logo Icon -->
+            <div class="flex justify-center mb-3">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-white shadow-xs border border-[#E7E5DF] p-3 flex items-center justify-center">
+                    <!-- Authentic Notion Logo SVG -->
+                    <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#2F3437"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Title & Subtitle -->
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#2F3437] tracking-tight">
+                Notion Learning Hub
             </h1>
-            <p class="mt-3 text-lg md:text-xl text-sky-700/70 font-light max-w-md mx-auto">
-                เรียนรู้การใช้ Notion<br>เพื่อเพิ่มประสิทธิภาพการทำงาน
+            <p class="mt-2 text-xs sm:text-sm md:text-base text-[#787774] font-normal leading-relaxed">
+                ศูนย์รวมเอกสาร สไลด์ เทมเพลต และกิจกรรมสำหรับเวิร์กช็อป
             </p>
-        </div>
+        </header>
 
-        <!-- Buttons Grid -->
-        <div id="buttons-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 max-w-3xl w-full">
+        <!-- Buttons Grid: 2 Columns on Mobile, 3 Columns on iPad & Desktop -->
+        <div id="buttons-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3.5 md:gap-4 max-w-3xl w-full">
 
-            <!-- Button 1: View Slides -->
-            <a href="Green%20and%20Beige%20Modern%20Simple%20Website%20Development%20Presentation%20(1).pdf" id="btn-slides" class="btn-card group opacity-0 translate-y-8" target="_blank" rel="noopener">
-                <div class="btn-card-inner">
-                    <div
-                        class="btn-icon bg-gradient-to-br from-blue-400 to-blue-600 group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="presentation" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <span class="btn-label">ดูสไลด์นำเสนอ</span>
-                    <span class="btn-sublabel">Presentation Slides</span>
-                </div>
-                <div class="btn-shine"></div>
-            </a>
-
-            <!-- Button 2: Template Workshop -->
-            <a href="https://serious-truck-4d6.notion.site/Workspace-Template-3f94809e5f2e80d8a40ec8ebbb64b1ed" id="btn-workshop" class="btn-card group opacity-0 translate-y-8" target="_blank" rel="noopener">
-                <div class="btn-card-inner">
-                    <div
-                        class="btn-icon bg-gradient-to-br from-violet-400 to-violet-600 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#7c3aed"/>
-                        </svg>
-                    </div>
-                    <span class="btn-label">Template Workshop</span>
-                    <span class="btn-sublabel">Notion Workshop Template</span>
-                </div>
-                <div class="btn-shine"></div>
-            </a>
-
-            <!-- Button 3: Free Templates -->
-            <a href="https://www.notion.com/th/templates/category/agile" id="btn-templates" class="btn-card group opacity-0 translate-y-8"
-                target="_blank" rel="noopener">
-                <div class="btn-card-inner">
-                    <div
-                        class="btn-icon bg-gradient-to-br from-amber-400 to-orange-500 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#d97706"/>
-                        </svg>
-                    </div>
-                    <span class="btn-label">แจก Template Notion</span>
-                    <span class="btn-sublabel">Free Notion Templates</span>
-                </div>
-                <div class="btn-shine"></div>
-            </a>
-
-            <!-- Button 4: Notion Website -->
-            <a href="https://www.notion.com/th" id="btn-notion" class="btn-card group opacity-0 translate-y-8"
-                target="_blank" rel="noopener">
-                <div class="btn-card-inner">
-                    <div
-                        class="btn-icon bg-gradient-to-br from-gray-700 to-gray-900 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#1f2937"/>
-                        </svg>
-                    </div>
-                    <span class="btn-label">เข้าเว็บ Notion</span>
-                    <span class="btn-sublabel">Go to Notion</span>
-                </div>
-                <div class="btn-shine"></div>
-            </a>
-
-            <!-- Button 5: Mentimeter Game -->
-            <a href="#menti-modal" id="btn-menti" class="btn-card group opacity-0 translate-y-8" role="button" aria-haspopup="dialog">
-                <div class="btn-card-inner">
-                    <div
-                        class="btn-icon bg-gradient-to-br from-pink-500 to-rose-600 group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="gamepad-2" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <span class="btn-label">เล่นเกม Mentimeter</span>
-                    <span class="btn-sublabel">Code: 3568 5553</span>
-                    <span class="inline-flex items-center gap-1 text-[11px] font-medium text-rose-600 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-200/60 mt-0.5">
-                        <i data-lucide="qr-code" class="w-3 h-3"></i> ดู QR / ลิงก์
+            <!-- Card 1: View Slides -->
+            <a href="Green%20and%20Beige%20Modern%20Simple%20Website%20Development%20Presentation%20(1).pdf" id="btn-slides" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+                <!-- Top Tag & Arrow -->
+                <div class="flex items-center justify-between w-full mb-3">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#0B6E99] bg-[#EBF5FA]">
+                        PDF Slide
                     </span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 card-arrow"></i>
                 </div>
-                <div class="btn-shine"></div>
-            </a>
-
-            <!-- Button 6: Quiz -->
-            <a href="https://forms.gle/4pahEqchbb4HpA5UA" id="btn-quiz" class="btn-card group opacity-0 translate-y-8" target="_blank" rel="noopener">
-                <div class="btn-card-inner">
-                    <div
-                        class="btn-icon bg-gradient-to-br from-emerald-400 to-emerald-600 group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="clipboard-check" class="w-7 h-7 text-white"></i>
+                <!-- Icon & Content -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#EBF5FA] text-[#0B6E99] flex items-center justify-center mb-2.5">
+                        <i data-lucide="presentation" class="w-5 h-5 sm:w-6 sm:h-6"></i>
                     </div>
-                    <span class="btn-label">แบบทดสอบ</span>
-                    <span class="btn-sublabel">Take a Quiz</span>
+                    <span class="text-sm sm:text-base font-semibold text-[#2F3437] leading-snug">ดูสไลด์นำเสนอ</span>
+                    <span class="text-[11px] sm:text-xs text-[#9B9A97] mt-0.5 font-normal">Presentation Slides</span>
                 </div>
-                <div class="btn-shine"></div>
             </a>
 
-            <!-- Button 7: Evaluation Form -->
+            <!-- Card 2: Template Workshop -->
+            <a href="https://serious-truck-4d6.notion.site/Workspace-Template-3f94809e5f2e80d8a40ec8ebbb64b1ed" id="btn-workshop" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+                <!-- Top Tag & Arrow -->
+                <div class="flex items-center justify-between w-full mb-3">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#6940A5] bg-[#F3F0F8]">
+                        เทมเพลตหลัก
+                    </span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 card-arrow"></i>
+                </div>
+                <!-- Icon & Content -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#F3F0F8] text-[#6940A5] flex items-center justify-center mb-2.5">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#6940A5"/>
+                        </svg>
+                    </div>
+                    <span class="text-sm sm:text-base font-semibold text-[#2F3437] leading-snug">Template Workshop</span>
+                    <span class="text-[11px] sm:text-xs text-[#9B9A97] mt-0.5 font-normal">Workspace Template</span>
+                </div>
+            </a>
+
+            <!-- Card 3: Free Templates -->
+            <a href="https://www.notion.com/th/templates/category/agile" id="btn-templates" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+                <!-- Top Tag & Arrow -->
+                <div class="flex items-center justify-between w-full mb-3">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#D9730D] bg-[#FDF2E9]">
+                        เทมเพลตฟรี
+                    </span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 card-arrow"></i>
+                </div>
+                <!-- Icon & Content -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#FDF2E9] text-[#D9730D] flex items-center justify-center mb-2.5">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#D9730D"/>
+                        </svg>
+                    </div>
+                    <span class="text-sm sm:text-base font-semibold text-[#2F3437] leading-snug">แจก Template Notion</span>
+                    <span class="text-[11px] sm:text-xs text-[#9B9A97] mt-0.5 font-normal">Agile Templates</span>
+                </div>
+            </a>
+
+            <!-- Card 4: Notion Website -->
+            <a href="https://www.notion.com/th" id="btn-notion" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+                <!-- Top Tag & Arrow -->
+                <div class="flex items-center justify-between w-full mb-3">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#37352F] bg-[#F1F1EF]">
+                        เว็บทางการ
+                    </span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 card-arrow"></i>
+                </div>
+                <!-- Icon & Content -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#F1F1EF] text-[#37352F] flex items-center justify-center mb-2.5">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#37352F"/>
+                        </svg>
+                    </div>
+                    <span class="text-sm sm:text-base font-semibold text-[#2F3437] leading-snug">เข้าเว็บ Notion</span>
+                    <span class="text-[11px] sm:text-xs text-[#9B9A97] mt-0.5 font-normal">notion.com/th</span>
+                </div>
+            </a>
+
+            <!-- Card 5: Mentimeter Game -->
+            <a href="#menti-modal" id="btn-menti" class="notion-card group opacity-0 translate-y-3" role="button" aria-haspopup="dialog">
+                <!-- Top Tag & Icon Badge -->
+                <div class="flex items-center justify-between w-full mb-3">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#D44C47] bg-[#FDEBEC]">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#D44C47]"></span> Live Game
+                    </span>
+                    <span class="text-[10px] sm:text-[11px] text-[#787774] font-mono font-medium">3568 5553</span>
+                </div>
+                <!-- Icon & Content -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#FDEBEC] text-[#D44C47] flex items-center justify-center mb-2.5">
+                        <i data-lucide="gamepad-2" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                    </div>
+                    <span class="text-sm sm:text-base font-semibold text-[#2F3437] leading-snug">เล่นเกม Mentimeter</span>
+                    <span class="text-[11px] sm:text-xs text-[#9B9A97] mt-0.5 font-normal">กดดู QR Code / ลิงก์</span>
+                </div>
+            </a>
+
+            <!-- Card 6: Quiz -->
+            <a href="https://forms.gle/4pahEqchbb4HpA5UA" id="btn-quiz" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+                <!-- Top Tag & Arrow -->
+                <div class="flex items-center justify-between w-full mb-3">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#0F7B6C] bg-[#EEF6F3]">
+                        Google Forms
+                    </span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 card-arrow"></i>
+                </div>
+                <!-- Icon & Content -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#EEF6F3] text-[#0F7B6C] flex items-center justify-center mb-2.5">
+                        <i data-lucide="clipboard-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                    </div>
+                    <span class="text-sm sm:text-base font-semibold text-[#2F3437] leading-snug">แบบทดสอบ</span>
+                    <span class="text-[11px] sm:text-xs text-[#9B9A97] mt-0.5 font-normal">Take a Quiz</span>
+                </div>
+            </a>
+
+            <!-- Card 7: Evaluation Form -->
             <a href="https://forms.gle/EjW3ivkVN5HrBDyy8" id="btn-eval"
-                class="btn-card group opacity-0 translate-y-8 col-span-2 md:col-start-2 md:col-span-1" target="_blank" rel="noopener">
-                <div class="btn-card-inner">
-                    <div
-                        class="btn-icon bg-gradient-to-br from-teal-400 to-cyan-600 group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="star" class="w-7 h-7 text-white"></i>
-                    </div>
-                    <span class="btn-label">แบบประเมิน</span>
-                    <span class="btn-sublabel">Evaluation Form</span>
+                class="notion-card group opacity-0 translate-y-3 col-span-2 md:col-start-2 md:col-span-1" target="_blank" rel="noopener">
+                <!-- Top Tag & Arrow -->
+                <div class="flex items-center justify-between w-full mb-3">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#8F6B00] bg-[#FBF3DB]">
+                        Feedback
+                    </span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 card-arrow"></i>
                 </div>
-                <div class="btn-shine"></div>
+                <!-- Icon & Content -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#FBF3DB] text-[#8F6B00] flex items-center justify-center mb-2.5">
+                        <i data-lucide="star" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+                    </div>
+                    <span class="text-sm sm:text-base font-semibold text-[#2F3437] leading-snug">แบบประเมิน</span>
+                    <span class="text-[11px] sm:text-xs text-[#9B9A97] mt-0.5 font-normal">Evaluation Form</span>
+                </div>
             </a>
 
         </div>
 
         <!-- Footer -->
-        <footer id="footer" class="mt-14 text-center opacity-0 translate-y-4">
-            <div class="flex items-center justify-center gap-2 text-sky-400/60">
-                <i data-lucide="heart" class="w-4 h-4"></i>
-                <span class="text-sm font-light">Made with Notion Group</span>
-                <i data-lucide="heart" class="w-4 h-4"></i>
+        <footer id="footer" class="mt-12 sm:mt-14 text-center opacity-0 translate-y-3 transition-all duration-500">
+            <div class="flex items-center justify-center gap-2 text-xs text-[#9B9A97] font-normal">
+                <span>AI x Notion Workshop</span>
+                <span>•</span>
+                <span>Created for Notion Group</span>
             </div>
         </footer>
 
     </main>
 
-    <!-- Mentimeter QR Code Modal -->
+    <!-- Mentimeter QR Code Modal (Human-Crafted Notion Dialog) -->
     <div id="menti-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-content relative w-full max-w-sm p-6 text-center">
+        <div class="modal-content relative w-full max-w-sm p-6 sm:p-7 text-center mx-4">
             <!-- Close Button -->
-            <button id="close-modal" type="button" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200/80 p-2 rounded-full transition-colors cursor-pointer" aria-label="ปิดหน้าต่าง">
-                <i data-lucide="x" class="w-5 h-5"></i>
+            <button id="close-modal" type="button" class="absolute top-4 right-4 text-[#787774] hover:text-[#2F3437] bg-[#F7F6F3] hover:bg-[#EAE8E4] p-2 rounded-full transition-colors cursor-pointer" aria-label="ปิดหน้าต่าง">
+                <i data-lucide="x" class="w-4 h-4"></i>
             </button>
 
             <!-- Modal Header Icon -->
-            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white mb-3 shadow-lg shadow-rose-500/25">
-                <i data-lucide="gamepad-2" class="w-7 h-7"></i>
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#FDEBEC] text-[#D44C47] mb-3">
+                <i data-lucide="gamepad-2" class="w-6 h-6"></i>
             </div>
 
-            <h3 id="modal-title" class="text-xl font-bold text-slate-800">เล่นเกม Mentimeter</h3>
-            <p class="text-xs text-sky-700/70 mt-1">สแกน QR Code ด้วยมือถือ หรือเข้าเว็บใส่รหัสด้านล่าง</p>
+            <h3 id="modal-title" class="text-lg sm:text-xl font-bold text-[#2F3437]">เล่นเกม Mentimeter</h3>
+            <p class="text-xs text-[#787774] mt-1">สแกน QR Code ด้วยมือถือ หรือเข้าเว็บใส่รหัสด้านล่าง</p>
 
             <!-- QR Code Image -->
-            <div class="my-4 p-3 bg-white/90 rounded-2xl border border-sky-100 shadow-sm inline-block">
-                <img src="assets/menti-qr.png" alt="Mentimeter QR Code - menti.com code 3568 5553" class="w-56 h-auto mx-auto rounded-xl">
+            <div class="my-4 p-2 bg-white rounded-xl border border-[#E8E6E1] shadow-xs inline-block">
+                <img src="assets/menti-qr.png" alt="Mentimeter QR Code - menti.com code 3568 5553" class="w-48 sm:w-52 h-auto mx-auto rounded-lg">
             </div>
 
             <!-- Code Box with Copy Button -->
-            <div class="bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-200/80 rounded-xl p-3 mb-4 flex items-center justify-between shadow-xs">
+            <div class="bg-[#FAF9F6] border border-[#E8E6E1] rounded-xl p-3 mb-4 flex items-center justify-between">
                 <div class="text-left">
-                    <span class="text-[10px] uppercase tracking-wider text-sky-600 font-bold block">รหัสเข้าร่วม (Code)</span>
-                    <span id="menti-code" class="text-lg sm:text-xl font-extrabold text-slate-800 tracking-wider">3568 5553</span>
+                    <span class="text-[10px] uppercase tracking-wider text-[#787774] font-semibold block">รหัสห้อง (Code)</span>
+                    <span id="menti-code" class="text-lg sm:text-xl font-mono font-bold text-[#2F3437] tracking-wider">3568 5553</span>
                 </div>
-                <button id="btn-copy-code" type="button" class="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-sky-700 bg-white hover:bg-sky-100 rounded-lg border border-sky-200 shadow-sm transition-all active:scale-95 cursor-pointer">
+                <button id="btn-copy-code" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[#2F3437] bg-white hover:bg-[#F7F6F3] rounded-lg border border-[#E3E0D8] shadow-xs transition-all active:scale-95 cursor-pointer">
                     <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                    <span id="copy-text">คัดลอกรหัส</span>
+                    <span id="copy-text">คัดลอก</span>
                 </button>
             </div>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-col gap-2">
-                <a href="https://www.menti.com/alsmsuhj5u34?source=qr-widget" target="_blank" rel="noopener" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-white bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 shadow-lg shadow-rose-500/25 transition-all active:scale-98">
-                    <span>เปิด menti.com ทันที</span>
-                    <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
-            </div>
+            <!-- Action Button -->
+            <a href="https://www.menti.com/alsmsuhj5u34?source=qr-widget" target="_blank" rel="noopener" class="w-full inline-flex items-center justify-center gap-2 py-2.5 sm:py-3 px-4 rounded-xl font-medium text-sm text-white bg-[#2F3437] hover:bg-[#1C1F20] transition-all active:scale-98 shadow-xs">
+                <span>เปิด menti.com ทันที</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
         </div>
     </div>
 
