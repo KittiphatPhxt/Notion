@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" href="https://www.notion.so/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://www.notion.so/images/meta/default.png">
+    <title>Notion Group</title>
+
+
+    <!-- TailwindCSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'Noto Sans Thai', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-sky-50 via-white to-sky-100 font-sans overflow-x-hidden">
+
+    <!-- Animated Background Blobs -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden" style="z-index: -10;" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div id="particles" class="fixed inset-0 pointer-events-none" style="z-index: -5;" aria-hidden="true"></div>
+
+    <!-- Main Content -->
+    <main class="relative min-h-screen flex flex-col items-center justify-center px-4 py-12">
+
+        <!-- Logo / Brand Section -->
+        <div id="brand" class="text-center mb-10 opacity-0 translate-y-8">
+            <div
+                class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-xl shadow-sky-200/50 border border-sky-100 mb-5 p-3.5 hover:scale-105 transition-all duration-300">
+                <!-- Authentic Notion Logo SVG -->
+                <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#0f172a"/>
+                </svg>
+            </div>
+            <h1
+                class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-sky-600 via-sky-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
+                Notion Group
+            </h1>
+            <p class="mt-3 text-lg md:text-xl text-sky-700/70 font-light max-w-md mx-auto">
+                เรียนรู้การใช้ Notion<br>เพื่อเพิ่มประสิทธิภาพการทำงาน
+            </p>
+        </div>
+
+        <!-- Buttons Grid -->
+        <div id="buttons-grid" class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 max-w-3xl w-full">
+
+            <!-- Button 1: View Slides -->
+            <a href="#" id="btn-slides" class="btn-card group opacity-0 translate-y-8" target="_blank" rel="noopener">
+                <div class="btn-card-inner">
+                    <div
+                        class="btn-icon bg-gradient-to-br from-blue-400 to-blue-600 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="presentation" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <span class="btn-label">ดูสไลด์นำเสนอ</span>
+                    <span class="btn-sublabel">Presentation Slides</span>
+                </div>
+                <div class="btn-shine"></div>
+            </a>
+
+            <!-- Button 2: Quiz -->
+            <a href="#" id="btn-quiz" class="btn-card group opacity-0 translate-y-8" target="_blank" rel="noopener">
+                <div class="btn-card-inner">
+                    <div
+                        class="btn-icon bg-gradient-to-br from-emerald-400 to-emerald-600 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="clipboard-check" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <span class="btn-label">แบบทดสอบ</span>
+                    <span class="btn-sublabel">Take a Quiz</span>
+                </div>
+                <div class="btn-shine"></div>
+            </a>
+
+            <!-- Button 3: Notion Website -->
+            <a href="https://www.notion.so" id="btn-notion" class="btn-card group opacity-0 translate-y-8"
+                target="_blank" rel="noopener">
+                <div class="btn-card-inner">
+                    <div
+                        class="btn-icon bg-gradient-to-br from-gray-700 to-gray-900 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#1f2937"/>
+                        </svg>
+                    </div>
+                    <span class="btn-label">เข้าเว็บ Notion</span>
+                    <span class="btn-sublabel">Go to Notion</span>
+                </div>
+                <div class="btn-shine"></div>
+            </a>
+
+            <!-- Button 4: Template Workshop -->
+            <a href="#" id="btn-workshop" class="btn-card group opacity-0 translate-y-8" target="_blank" rel="noopener">
+                <div class="btn-card-inner">
+                    <div
+                        class="btn-icon bg-gradient-to-br from-violet-400 to-violet-600 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#7c3aed"/>
+                        </svg>
+                    </div>
+                    <span class="btn-label">Template Workshop</span>
+                    <span class="btn-sublabel">Notion Workshop Template</span>
+                </div>
+                <div class="btn-shine"></div>
+            </a>
+
+            <!-- Button 5: Free Templates -->
+            <a href="https://www.notion.so/templates" id="btn-templates" class="btn-card group opacity-0 translate-y-8"
+                target="_blank" rel="noopener">
+                <div class="btn-card-inner">
+                    <div
+                        class="btn-icon bg-gradient-to-br from-amber-400 to-orange-500 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553-6.413 6.017-6.8z" fill="#fff"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" fill="#d97706"/>
+                        </svg>
+                    </div>
+                    <span class="btn-label">แจก Template Notion</span>
+                    <span class="btn-sublabel">Free Notion Templates</span>
+                </div>
+                <div class="btn-shine"></div>
+            </a>
+
+            <!-- Button 6: Kahoot Game -->
+            <a href="https://kahoot.it/" id="btn-kahoot" class="btn-card group opacity-0 translate-y-8" target="_blank"
+                rel="noopener">
+                <div class="btn-card-inner">
+                    <div
+                        class="btn-icon bg-gradient-to-br from-pink-400 to-rose-500 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="gamepad-2" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <span class="btn-label">เล่นเกม Kahoot</span>
+                    <span class="btn-sublabel">Play Kahoot Game</span>
+                </div>
+                <div class="btn-shine"></div>
+            </a>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer" class="mt-14 text-center opacity-0 translate-y-4">
+            <div class="flex items-center justify-center gap-2 text-sky-400/60">
+                <i data-lucide="heart" class="w-4 h-4"></i>
+                <span class="text-sm font-light">Made with Notion Group</span>
+                <i data-lucide="heart" class="w-4 h-4"></i>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
