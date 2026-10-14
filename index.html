@@ -37,7 +37,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 
 <body class="min-h-screen bg-[#FAF9F6] text-[#2F3437] font-sans antialiased overflow-x-hidden">
@@ -49,7 +49,7 @@
     <main class="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-10 sm:py-14 md:py-16 safe-padding">
 
         <!-- Header / Brand Section -->
-        <header id="brand" class="text-center mb-8 sm:mb-10 opacity-0 translate-y-3 transition-all duration-500 max-w-lg mx-auto">
+        <header id="brand" class="text-center mb-8 sm:mb-10 max-w-lg mx-auto">
             <!-- Pill Badge -->
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium text-[#5B5854] bg-[#F1EFEB] border border-[#E3E0D8] mb-4 shadow-xs">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
@@ -80,7 +80,7 @@
         <div id="buttons-grid" class="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3.5 md:gap-4 max-w-3xl w-full">
 
             <!-- Card 1: View Slides -->
-            <a href="Green%20and%20Beige%20Modern%20Simple%20Website%20Development%20Presentation%20(1).pdf" id="btn-slides" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+            <a href="Green%20and%20Beige%20Modern%20Simple%20Website%20Development%20Presentation%20(1).pdf" id="btn-slides" class="btn-card notion-card group" target="_blank" rel="noopener">
                 <!-- Top Tag & Arrow -->
                 <div class="flex items-center justify-between w-full mb-3">
                     <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#0B6E99] bg-[#EBF5FA]">
@@ -99,7 +99,7 @@
             </a>
 
             <!-- Card 2: Template Workshop -->
-            <a href="https://serious-truck-4d6.notion.site/Workspace-Template-3f94809e5f2e80d8a40ec8ebbb64b1ed" id="btn-workshop" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+            <a href="https://serious-truck-4d6.notion.site/Workspace-Template-3f94809e5f2e80d8a40ec8ebbb64b1ed" id="btn-workshop" class="btn-card notion-card group" target="_blank" rel="noopener">
                 <!-- Top Tag & Arrow -->
                 <div class="flex items-center justify-between w-full mb-3">
                     <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#6940A5] bg-[#F3F0F8]">
@@ -121,7 +121,7 @@
             </a>
 
             <!-- Card 3: Free Templates -->
-            <a href="https://www.notion.com/th/templates/category/agile" id="btn-templates" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+            <a href="https://www.notion.com/th/templates/category/agile" id="btn-templates" class="btn-card notion-card group" target="_blank" rel="noopener">
                 <!-- Top Tag & Arrow -->
                 <div class="flex items-center justify-between w-full mb-3">
                     <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#D9730D] bg-[#FDF2E9]">
@@ -143,7 +143,7 @@
             </a>
 
             <!-- Card 4: Notion Website -->
-            <a href="https://www.notion.com/th" id="btn-notion" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+            <a href="https://www.notion.com/th" id="btn-notion" class="btn-card notion-card group" target="_blank" rel="noopener">
                 <!-- Top Tag & Arrow -->
                 <div class="flex items-center justify-between w-full mb-3">
                     <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#37352F] bg-[#F1F1EF]">
@@ -165,7 +165,7 @@
             </a>
 
             <!-- Card 5: Mentimeter Game -->
-            <a href="#menti-modal" id="btn-menti" class="notion-card group opacity-0 translate-y-3" role="button" aria-haspopup="dialog">
+            <a href="#menti-modal" id="btn-menti" class="btn-card notion-card group" role="button" aria-haspopup="dialog">
                 <!-- Top Tag & Icon Badge -->
                 <div class="flex items-center justify-between w-full mb-3">
                     <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#D44C47] bg-[#FDEBEC]">
@@ -184,7 +184,7 @@
             </a>
 
             <!-- Card 6: Quiz -->
-            <a href="https://forms.gle/4pahEqchbb4HpA5UA" id="btn-quiz" class="notion-card group opacity-0 translate-y-3" target="_blank" rel="noopener">
+            <a href="https://forms.gle/4pahEqchbb4HpA5UA" id="btn-quiz" class="btn-card notion-card group" target="_blank" rel="noopener">
                 <!-- Top Tag & Arrow -->
                 <div class="flex items-center justify-between w-full mb-3">
                     <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#0F7B6C] bg-[#EEF6F3]">
@@ -204,7 +204,7 @@
 
             <!-- Card 7: Evaluation Form -->
             <a href="https://forms.gle/EjW3ivkVN5HrBDyy8" id="btn-eval"
-                class="notion-card group opacity-0 translate-y-3 col-span-2 md:col-start-2 md:col-span-1" target="_blank" rel="noopener">
+                class="btn-card notion-card group col-span-2 md:col-start-2 md:col-span-1" target="_blank" rel="noopener">
                 <!-- Top Tag & Arrow -->
                 <div class="flex items-center justify-between w-full mb-3">
                     <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium text-[#8F6B00] bg-[#FBF3DB]">
@@ -225,7 +225,7 @@
         </div>
 
         <!-- Footer -->
-        <footer id="footer" class="mt-12 sm:mt-14 text-center opacity-0 translate-y-3 transition-all duration-500">
+        <footer id="footer" class="mt-12 sm:mt-14 text-center">
             <div class="flex items-center justify-center gap-2 text-xs text-[#9B9A97] font-normal">
                 <span>AI x Notion Workshop</span>
                 <span>•</span>
@@ -277,7 +277,7 @@
     </div>
 
     <!-- Script -->
-    <script src="script.js"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 
 </html>
